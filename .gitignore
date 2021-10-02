@@ -32,9 +32,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-# husky
-.husky
-
-# Sentry
-.sentryclirc
