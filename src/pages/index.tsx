@@ -14,13 +14,13 @@ import { AboutMe, Me, MyResume, MyProjects } from 'ui';
 import type { NextPage } from 'next';
 
 const IndexPage: NextPage = () => {
-	const { sm } = useMediaQuery();
+	const { md } = useMediaQuery();
 
 	const tabs = [
 		meTitle,
-		sm ? myProjectsTabName.mobile : myProjectsTabName.desktop,
-		sm ? myResumeTabName.mobile : myResumeTabName.desktop,
-		sm ? aboutTabName.mobile : aboutTabName.desktop,
+		!md ? myProjectsTabName.mobile : myProjectsTabName.desktop,
+		!md ? myResumeTabName.mobile : myResumeTabName.desktop,
+		!md ? aboutTabName.mobile : aboutTabName.desktop,
 	];
 	const panels = [
 		<Me key={0} />,
