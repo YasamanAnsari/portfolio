@@ -1,47 +1,16 @@
 import App from 'next/app';
 import Head from 'next/head';
-import { global } from 'styled-jsx/css';
 
 import { BrowserProvider, extractBrowserServerSideData } from 'lib/browser';
+import { websiteDescription, websiteTitle } from 'lib/contents';
+import { bodyCSS, fontOvverridesCSS, safeAreaPaddingForNotchs } from 'lib/css';
 
 import { BaseLayout } from 'ui';
-import 'tailwindcss/tailwind.css';
 
 import Error from './_error';
 
 import type { AppWithLayoutProps, NextWebVitalsMetric } from 'next/app';
-
-const globalCSS = global`
-	*:not(i) {
-		font-family: Inter sans-serif;
-	}
-
-	:global(#__next) {
-		@apply relative flex flex-col min-h-screen m-0 overflow-hidden text-base max-w-screen;
-
-
-		padding: env(safe-area-inset-top) env(safe-area-inset-right)
-			env(safe-area-inset-bottom) env(safe-area-inset-left);
-	}
-`;
-
-const DefaultCSS = () => (
-	<style jsx global>
-		{globalCSS}
-	</style>
-);
-
-const DefaultHead = () => (
-	<Head>
-		<meta charSet='utf-8' />
-		<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-		<meta
-			name='viewport'
-			content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=yes'
-		/>
-		<title>Next.js</title>
-	</Head>
-);
+import 'tailwindcss/tailwind.css';
 
 class MyApp extends App<AppWithLayoutProps> {
 	state = {
@@ -60,9 +29,9 @@ class MyApp extends App<AppWithLayoutProps> {
 		if (hasError) {
 			return (
 				<>
+					{globalHead}
+					{globalCSS}
 					<Error />
-					<DefaultHead />
-					<DefaultCSS />
 				</>
 			);
 		}
@@ -75,8 +44,8 @@ class MyApp extends App<AppWithLayoutProps> {
 
 		return (
 			<>
-				<DefaultHead />
-				<DefaultCSS />
+				{globalHead}
+				{globalCSS}
 				<BrowserProvider initialData={browserData}>
 					<Layout {...layoutProps}>
 						<Component {...pageProps} />
@@ -91,5 +60,37 @@ const IS_WEB_VITALS_ENABLE = process.env.NEXT_PUBLIC_WEB_VITALS === '1';
 export const reportWebVitals = (metric: NextWebVitalsMetric): void => {
 	if (IS_WEB_VITALS_ENABLE) console.log(metric);
 };
+
+const globalHead = (
+	<Head>
+		<title>{websiteTitle}</title>
+		<meta name='description' content={websiteDescription} />
+		<meta charSet='utf-8' />
+		<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+		<meta
+			name='viewport'
+			content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5,user-scalable=yes'
+		/>
+
+		<link rel='preconnect' href='https://css.gstatic.com/' crossOrigin='true' />
+		<link rel='preload' as='style' href='/css/font.css' />
+		{/* eslint-disable-next-line @next/next/no-css-tags */}
+		<link rel='stylesheet' href='/css/font.css' />
+	</Head>
+);
+
+const globalCSS = (
+	<>
+		<style jsx global>
+			{bodyCSS}
+		</style>
+		<style jsx global>
+			{safeAreaPaddingForNotchs}
+		</style>
+		<style jsx global>
+			{fontOvverridesCSS}
+		</style>
+	</>
+);
 
 export default MyApp;

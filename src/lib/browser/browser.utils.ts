@@ -1,13 +1,9 @@
-import {
-	getIsTablet,
-	getParsedUserAgent,
-	getUserAgent,
-	mediaQueries,
-} from 'lib/utils';
+import { mediaQueries } from 'lib/css';
+import { getIsTablet, getParsedUserAgent, getUserAgent } from 'lib/utils';
 
 import type { BrowserMediaQuery } from './browser.types';
 import type { IncomingMessage } from 'http';
-import type { Screens } from 'lib/utils';
+import type { Screens } from 'lib/css';
 
 type MatchMediaEntry = [keyof typeof mediaQueries, MediaQueryList | undefined];
 export const getMatchMediaEntries = () =>
