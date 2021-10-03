@@ -123,11 +123,6 @@ const importPlugin = {
 						position: 'after',
 					},
 					{
-						pattern: 'contents',
-						group: 'type',
-						position: 'before',
-					},
-					{
 						pattern: 'types',
 						group: 'type',
 						position: 'after',

@@ -1,5 +1,6 @@
-import { tailwindConfig } from 'lib/css';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+
+import { tailwindConfig } from 'lib/css';
 
 const { dark: backgroundColor } = tailwindConfig.theme.backgroundColor;
 
