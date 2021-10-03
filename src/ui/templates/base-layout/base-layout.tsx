@@ -8,12 +8,13 @@ export const BaseLayout: FC<{ style?: CSSProperties; className?: string }> = ({
 	<>
 		<main style={style} className={className}>
 			{children}
+
+			<style jsx>{`
+				:global(main) {
+					@apply flex-1 flex flex-col items-center justify-center;
+				}
+			`}</style>
 		</main>
-		<style jsx>{`
-			main {
-				@apply flex-1 flex flex-col items-center justify-center;
-			}
-		`}</style>
 
 		{/* <Navbar className='base-layout-navbar' />
 		<style jsx>{navbarCSS}</style> */}

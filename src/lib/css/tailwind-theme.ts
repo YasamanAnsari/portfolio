@@ -2432,7 +2432,11 @@ export const tailwindTheme = {
 		'content',
 	],
 	plugins: [],
-	purge: { mode: 'all', content: [] },
+	purge: [
+		'./src/ui/**/*.{ts,tsx}',
+		'./src/pages/**/*.{ts,tsx}',
+		'./src/lib/css/**/*.{ts,tsx}',
+	],
 	darkMode: false,
 	presets: [],
 	variantOrder: [

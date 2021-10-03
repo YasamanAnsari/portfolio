@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import { BrowserProvider, extractBrowserServerSideData } from 'lib/browser';
 import { websiteDescription, websiteTitle } from 'lib/contents';
-import { bodyCSS, fontOvverridesCSS, safeAreaPaddingForNotchs } from 'lib/css';
+import { GlobalCSS } from 'lib/css';
 
 import { BaseLayout } from 'ui';
 
@@ -26,16 +26,6 @@ class MyApp extends App<AppWithLayoutProps> {
 		const { Component, pageProps } = this.props;
 		const browserData = extractBrowserServerSideData(pageProps);
 
-		if (hasError) {
-			return (
-				<>
-					{globalHead}
-					{globalCSS}
-					<Error />
-				</>
-			);
-		}
-
 		const Layout = Component.Layout?.Component || BaseLayout;
 		const layoutProps =
 			typeof Component.Layout?.props === 'function'
@@ -45,12 +35,17 @@ class MyApp extends App<AppWithLayoutProps> {
 		return (
 			<>
 				{globalHead}
-				{globalCSS}
-				<BrowserProvider initialData={browserData}>
-					<Layout {...layoutProps}>
-						<Component {...pageProps} />
-					</Layout>
-				</BrowserProvider>
+				<GlobalCSS />
+
+				{hasError ? (
+					<Error />
+				) : (
+					<BrowserProvider initialData={browserData}>
+						<Layout {...layoutProps}>
+							<Component {...pageProps} />
+						</Layout>
+					</BrowserProvider>
+				)}
 			</>
 		);
 	}
@@ -77,20 +72,6 @@ const globalHead = (
 		{/* eslint-disable-next-line @next/next/no-css-tags */}
 		<link rel='stylesheet' href='/css/font.css' />
 	</Head>
-);
-
-const globalCSS = (
-	<>
-		<style jsx global>
-			{bodyCSS}
-		</style>
-		<style jsx global>
-			{safeAreaPaddingForNotchs}
-		</style>
-		<style jsx global>
-			{fontOvverridesCSS}
-		</style>
-	</>
 );
 
 export default MyApp;

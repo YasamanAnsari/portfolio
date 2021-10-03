@@ -46,3 +46,17 @@ export const bodyCSS = global`
     @apply m-0;
   }
 `;
+
+export const GlobalCSS = () => (
+	<>
+		<style jsx global>
+			{bodyCSS}
+		</style>
+		<style jsx global>
+			{safeAreaPaddingForNotchs}
+		</style>
+		<style jsx global>
+			{fontOvverridesCSS}
+		</style>
+	</>
+);

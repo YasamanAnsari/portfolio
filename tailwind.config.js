@@ -4,11 +4,11 @@
  * @type {import("tailwindcss/tailwind-config").TailwindConfig}
  **/
 module.exports = {
-	purge: {
-		mode: 'all',
-		content: [],
-	},
-	// mode: 'jit',
+	purge: [
+		'./src/ui/**/*.{ts,tsx}',
+		'./src/pages/**/*.{ts,tsx}',
+		'./src/lib/css/**/*.{ts,tsx}',
+	],
 	darkMode: false,
 	theme: {
 		screens: {
