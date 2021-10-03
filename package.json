@@ -3,14 +3,14 @@
   "license": "MIT",
   "private": "false",
   "version": "0.3.0",
-  "author": "soheil.movahhedan@gmail.com",
+  "author": "yasamanansari2016@gmail.com",
   "scripts": {
     "dev": "yarn clone:tailwind && NODE_ENV=development next dev",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production next start",
     "lint": "next lint",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "clone:tailwind": "chmod u+x ./tailwind.generate.config.js && ./tailwind.generate.config.js && next lint --fix -d src/lib/utils/css"
+    "clone:tailwind": "chmod u+x ./tailwind.generate.config.js && ./tailwind.generate.config.js && next lint --fix -d src/lib/css"
   },
   "sideEffects": [
     "./public/*",
