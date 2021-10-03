@@ -1,2 +1,1 @@
-export * from './seo';
-export * from './socials';
+export * from './contents';
