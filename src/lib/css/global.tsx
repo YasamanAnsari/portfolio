@@ -1,10 +1,10 @@
 import { global } from 'styled-jsx/css';
 
 export const safeAreaPaddingForNotchs = global`
-:global(#__next) {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
+  body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
 `;
 
 export const fontOvverridesCSS = global`
@@ -43,7 +43,7 @@ export const bodyCSS = global`
     @apply overflow-hidden;
     @apply min-h-screen max-w-screen;
     @apply relative flex flex-col items-center justify-center;
-    @apply m-0;
+    @apply m-0 px-4;
   }
 `;
 
