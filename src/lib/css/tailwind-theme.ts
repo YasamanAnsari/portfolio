@@ -27,7 +27,7 @@ export const tailwindTheme = {
 		backgroundColor: {
 			white: '#FFFFFF',
 			dark: '#212121',
-			lightopacity: 'gba(255, 255, 255, 0.1)',
+			lightopacity: 'rgba(255, 255, 255, 0.1)',
 		},
 		maxWidth: { screen: '100vw', '640px': '40rem' },
 		colors: {
@@ -2208,7 +2208,7 @@ export const tailwindTheme = {
 		lineHeight: ['responsive'],
 		listStylePosition: ['responsive'],
 		listStyleType: ['responsive'],
-		margin: ['last'],
+		margin: ['last', 'responsive'],
 		maxHeight: ['responsive'],
 		maxWidth: ['responsive'],
 		minHeight: ['responsive'],

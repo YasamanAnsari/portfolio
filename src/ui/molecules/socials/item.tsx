@@ -18,7 +18,7 @@ export const SocialItem: FC<SocialItemProps> = ({
 	className,
 }) => (
 	<li className={['flex flex-col', className].filter(Boolean).join(' ')}>
-		<ExternalLink href={hrefUrl}>
+		<ExternalLink href={hrefUrl} tabIndex={-1}>
 			<Image src={iconSrc} alt={hrefUrl} width={40} height={40} />
 		</ExternalLink>
 		<ExternalLink href={hrefUrl} className='mt-2 text-secondary'>

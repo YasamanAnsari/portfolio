@@ -8,7 +8,7 @@ import { Socials } from 'ui/molecules';
 
 import type { FC } from 'react';
 
-export const Landing: FC = () => (
+export const Me: FC = () => (
 	<>
 		<h1 className='mb-4'>{websiteTitle}</h1>
 		<h3 className='mb-2 text-14px leading-24px'>{websiteDescription}</h3>

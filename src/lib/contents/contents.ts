@@ -1,3 +1,4 @@
+export const meTitle = 'Me';
 export const websiteTitle = 'Yasaman Ansari';
 export const websiteDescription =
 	'Experienced PHP Web Developer , Skilled in Oracle Database and PL/SQL . Interested in NLP and ML';
@@ -10,9 +11,17 @@ export const summeryAboutMe = `I’m a developer who have been experiencing diff
 science until I realized I want to explore the AI world. My goal is to
 experiment my way to success`;
 
-export const projectTitle = 'My projects';
+export const myProjectsTitle = 'My projects';
+export const myProjectsTabName = {
+	desktop: myProjectsTitle,
+	mobile: 'Projects',
+};
 
 export const myResumeTitle = 'My resume';
+export const myResumeTabName = {
+	desktop: myResumeTitle,
+	mobile: 'Resume',
+};
 export const downloadFullResumeText = 'Download Full Resume';
 export const myResumeSections = {
 	experiences: {
@@ -48,6 +57,10 @@ export const myResumeSections = {
 };
 
 export const aboutMeTitle = 'About me';
+export const aboutTabName = {
+	desktop: aboutMeTitle,
+	mobile: 'About',
+};
 export const aboutMe = [
 	`I live and work in Tehran, Iran. My day job includes web developing, working with different databases specially Oracle for right now, bash scripting and etc.`,
 	`Nevertheless, my interest in machine learning lately has led me to take on some little projects and strengthen my Python skills to cross the river of possibilities. To me, each project is a puzzle I have to solve, which excites me. I view each problem as an opportunity to learn. I usually like to visualize a n overall picture in my mind, and then break it down into little steps; Divide and conquer, as the saying goes.`,

@@ -45,7 +45,7 @@ module.exports = {
 		backgroundColor: {
 			white: '#FFFFFF',
 			dark: '#212121',
-			lightopacity: 'gba(255, 255, 255, 0.1)',
+			lightopacity: 'rgba(255, 255, 255, 0.1)',
 		},
 		maxWidth: {
 			screen: '100vw',
@@ -58,7 +58,7 @@ module.exports = {
 		},
 	},
 	variants: {
-		margin: ['last'],
+		margin: ['last', 'responsive'],
 	},
 	plugins: [],
 };

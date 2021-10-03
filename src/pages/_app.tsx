@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import App from 'next/app';
 import Head from 'next/head';
 
@@ -5,14 +6,13 @@ import { BrowserProvider, extractBrowserServerSideData } from 'lib/browser';
 import { websiteDescription, websiteTitle } from 'lib/contents';
 import { GlobalCSS } from 'lib/css';
 
-import { BaseLayout } from 'ui';
-
 import Error from './_error';
 
-import type { AppWithLayoutProps, NextWebVitalsMetric } from 'next/app';
+import type { NextWebVitalsMetric } from 'next/app';
+
 import 'tailwindcss/tailwind.css';
 
-class MyApp extends App<AppWithLayoutProps> {
+class MyApp extends App {
 	state = {
 		hasError: false,
 	};
@@ -26,12 +26,6 @@ class MyApp extends App<AppWithLayoutProps> {
 		const { Component, pageProps } = this.props;
 		const browserData = extractBrowserServerSideData(pageProps);
 
-		const Layout = Component.Layout?.Component || BaseLayout;
-		const layoutProps =
-			typeof Component.Layout?.props === 'function'
-				? Component.Layout?.props(pageProps)
-				: Component.Layout?.props || {};
-
 		return (
 			<>
 				{globalHead}
@@ -41,9 +35,7 @@ class MyApp extends App<AppWithLayoutProps> {
 					<Error />
 				) : (
 					<BrowserProvider initialData={browserData}>
-						<Layout {...layoutProps}>
-							<Component {...pageProps} />
-						</Layout>
+						<Component {...pageProps} />
 					</BrowserProvider>
 				)}
 			</>
@@ -69,7 +61,6 @@ const globalHead = (
 
 		<link rel='preconnect' href='https://css.gstatic.com/' crossOrigin='true' />
 		<link rel='preload' as='style' href='/css/font.css' />
-		{/* eslint-disable-next-line @next/next/no-css-tags */}
 		<link rel='stylesheet' href='/css/font.css' />
 	</Head>
 );

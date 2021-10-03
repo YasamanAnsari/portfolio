@@ -1,16 +1,72 @@
-import { MyProjects } from 'ui/templates/my-projects';
+import { Tab } from '@headlessui/react';
+import { Fragment } from 'react';
 
-import { AboutMe, Landing, MyResume } from 'ui';
+import { useMediaQuery } from 'lib/browser';
+import {
+	meTitle,
+	aboutTabName,
+	myResumeTabName,
+	myProjectsTabName,
+} from 'lib/contents';
 
-import type { NextPageWithLayout } from 'next';
+import { AboutMe, Me, MyResume, MyProjects } from 'ui';
 
-const IndexPage: NextPageWithLayout = () => (
-	<>
-		<Landing />
-		<MyProjects />
-		<MyResume />
-		<AboutMe />
-	</>
-);
+import type { NextPage } from 'next';
+
+const IndexPage: NextPage = () => {
+	const { sm } = useMediaQuery();
+
+	const tabs = [
+		meTitle,
+		sm ? myProjectsTabName.mobile : myProjectsTabName.desktop,
+		sm ? myResumeTabName.mobile : myResumeTabName.desktop,
+		sm ? aboutTabName.mobile : aboutTabName.desktop,
+	];
+	const panels = [
+		<Me key={0} />,
+		<MyProjects key={1} />,
+		<MyResume key={2} />,
+		<AboutMe key={3} />,
+	];
+
+	return (
+		<>
+			<Tab.Group>
+				<Tab.Panels as={Fragment}>
+					{panels.map((panel, index) => (
+						<Tab.Panel key={index} as='main' tabIndex={-1}>
+							{panel}
+						</Tab.Panel>
+					))}
+				</Tab.Panels>
+
+				<Tab.List as='ul' className='tab-list'>
+					{tabs.map((tab, index) => (
+						<Tab key={index} as='li' className={getTabClassName}>
+							{tab}
+						</Tab>
+					))}
+				</Tab.List>
+			</Tab.Group>
+
+			<style jsx>{`
+				:global(main) {
+					@apply flex-1 flex flex-col items-center justify-center px-4 py-8 md:p-0;
+				}
+
+				:global(ul.tab-list) {
+					@apply flex justify-center w-full bg-lightopacity py-7;
+				}
+
+				:global(li.tab-list-item) {
+					@apply mr-6 md:mr-32 last:mr-0 text-18px leading-24px cursor-pointer;
+				}
+			`}</style>
+		</>
+	);
+};
+
+const getTabClassName = ({ selected }: { selected: boolean }) =>
+	['tab-list-item', selected ? 'text-secondary' : ''].filter(Boolean).join(' ');
 
 export default IndexPage;

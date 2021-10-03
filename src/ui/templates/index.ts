@@ -1,4 +1,4 @@
 export * from './about-me';
-export * from './base-layout';
-export * from './landing';
+export * from './me';
+export * from './my-projects';
 export * from './my-resume';

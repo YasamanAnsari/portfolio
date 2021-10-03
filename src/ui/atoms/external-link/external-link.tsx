@@ -1,11 +1,17 @@
-import type { FC } from 'react';
+import type { FC, HTMLAttributes } from 'react';
 
-export const ExternalLink: FC<{ href: string; className?: string }> = ({
-	href,
-	className,
-	children,
-}) => (
-	<a href={href} target='_blank' rel='noreferrer' className={className}>
+export const ExternalLink: FC<{
+	href: string;
+	tabIndex?: HTMLAttributes<HTMLAnchorElement>['tabIndex'];
+	className?: string;
+}> = ({ href, tabIndex, className, children }) => (
+	<a
+		href={href}
+		tabIndex={tabIndex}
+		target='_blank'
+		rel='noreferrer'
+		className={className}
+	>
 		{children}
 	</a>
 );

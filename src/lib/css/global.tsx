@@ -23,7 +23,7 @@ const bodyCSS = global`
     @apply overflow-hidden;
     @apply min-h-screen max-w-screen;
     @apply relative flex flex-col items-center justify-center;
-    @apply m-0 px-4;
+    @apply m-0;
   }
 `;
 
