@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://portfolio-gamma-eight-52.vercel.app/
+
+# Sitemaps
+Sitemap: https://portfolio-gamma-eight-52.vercel.app/sitemap.xml

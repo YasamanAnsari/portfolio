@@ -8,6 +8,7 @@
     "dev": "yarn clone:tailwind && NODE_ENV=development next dev",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production next start",
+    "postbuild": "next-sitemap",
     "lint": "next lint",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "clone:tailwind": "chmod u+x ./tailwind.generate.config.js && ./tailwind.generate.config.js && next lint --fix -d src/lib/css"
@@ -42,6 +43,7 @@
     "fetch": "^1.1.0",
     "lost": "^8.3.0",
     "msw": "^0.35.0",
+    "next-sitemap": "^1.6.173",
     "postcss": "^8.3.6",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.3.0",

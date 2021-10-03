@@ -1,8 +1,8 @@
 {
-  "name": "Next.JS Web App",
-  "short_name": "Next",
+  "name": "Yasaman Ansari portfolio",
+  "short_name": "Yasaman Ansari",
   "theme_color": "#ffffff",
-  "background_color": "#004740",
+  "background_color": "#212121",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
