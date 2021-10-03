@@ -6,11 +6,6 @@
 module.exports = {
 	purge: {
 		mode: 'all',
-		options: {
-			keyframes: true,
-			fontFace: true,
-		},
-		preserveHtmlElements: false,
 		content: [],
 	},
 	// mode: 'jit',
@@ -21,17 +16,42 @@ module.exports = {
 			md: '768px',
 			lg: '1280px',
 		},
-		extend: {
-			maxWidth: {
-				screen: '100vw',
-			},
+		lineHeight: {
+			'14px': '0.875rem',
+			'18px': '1.125rem',
+			'24px': '1.5rem',
+			'42px': '2.636875rem',
 		},
-	},
-	variants: {
+		fontSize: {
+			'12px': '0.76rem',
+			'14px': '0.875rem',
+			'18px': '1.125rem',
+			'24px': '1.5rem',
+			'36px': '1.625rem',
+		},
+		fontWeight: {
+			normal: 'normal',
+			bold: 'bold',
+		},
+		textColor: {
+			primary: {
+				default: '#FFFFFF',
+				light: '#BDBDBD',
+				'on-dark-bg': '#424242',
+			},
+			secondary: '#4DF8A6',
+		},
+		backgroundColor: {
+			white: '#FFFFFF',
+			dark: '#212121',
+			lightopacity: 'gba(255, 255, 255, 0.1)',
+		},
+		maxWidth: {
+			screen: '100vw',
+			'640px': '40rem',
+		},
 		extend: {},
 	},
+	variants: {},
 	plugins: [],
-	corePlugins: {
-		float: false,
-	},
 };
