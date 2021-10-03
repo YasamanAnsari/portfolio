@@ -5,6 +5,7 @@ export const tailwindTheme = {
 			'14px': '0.875rem',
 			'18px': '1.125rem',
 			'24px': '1.5rem',
+			'28px': '1.758rem',
 			'42px': '2.636875rem',
 		},
 		fontSize: {
@@ -2079,6 +2080,7 @@ export const tailwindTheme = {
 			screen: '100vw',
 			min: 'min-content',
 			max: 'max-content',
+			'240px': '15rem',
 		},
 		zIndex: {
 			0: '0',
@@ -2206,7 +2208,7 @@ export const tailwindTheme = {
 		lineHeight: ['responsive'],
 		listStylePosition: ['responsive'],
 		listStyleType: ['responsive'],
-		margin: ['responsive'],
+		margin: ['last'],
 		maxHeight: ['responsive'],
 		maxWidth: ['responsive'],
 		minHeight: ['responsive'],

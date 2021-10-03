@@ -20,6 +20,7 @@ module.exports = {
 			'14px': '0.875rem',
 			'18px': '1.125rem',
 			'24px': '1.5rem',
+			'28px': '1.758rem',
 			'42px': '2.636875rem',
 		},
 		fontSize: {
@@ -50,8 +51,14 @@ module.exports = {
 			screen: '100vw',
 			'640px': '40rem',
 		},
-		extend: {},
+		extend: {
+			width: {
+				'240px': '15rem',
+			},
+		},
 	},
-	variants: {},
+	variants: {
+		margin: ['last'],
+	},
 	plugins: [],
 };
