@@ -17,5 +17,4 @@ const nextConfig = {
 	mode: IS_PRODUCTION ? 'production' : 'development', // Used for tree shaking, see "sideEffects" in package.json
 };
 
-
-module.exports = nextConfig
+module.exports = nextConfig;
