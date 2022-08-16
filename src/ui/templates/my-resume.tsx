@@ -16,6 +16,8 @@ export const MyResume: FC = () => (
 		<Experiences className='mb-14' />
 		<h3 className='mb-6 text-secondary'>{educations.title}:</h3>
 		<Educations className='mb-14' />
-		<Button iconSrc='/icons/pdf.svg' label={downloadFullResumeText} />
+		<a href='/Yasaman_Ansari_CV.pdf' target='_blank'>
+			<Button iconSrc='/icons/pdf.svg' label={downloadFullResumeText} />
+		</a>
 	</>
 );
