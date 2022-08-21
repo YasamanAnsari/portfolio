@@ -9,6 +9,7 @@ const nextConfig = {
 	webpack5: true,
 	eslint: {
 		dirs: ['src', '!src/lib/utils/css/tailwind-theme.ts'],
+		ignoreDuringBuilds: true,
 	},
 	i18n: {
 		locales: ['en'],
